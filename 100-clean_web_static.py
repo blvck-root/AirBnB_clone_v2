@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Fabric script that generates archives, 
+Fabric script that generates archives,
 distributes archives to servers,
 and deletes out of date archives.
 """
