@@ -11,7 +11,8 @@ class FileStorage:
     def all(self, cls=None):
         """that returns the list of objects of one type of class"""
         if cls is not None:
-            return [obj for obj in FileStorage.__objects.values() if isinstance(obj, cls)]
+            return [obj for obj in FileStorage.__objects.values()
+                    if isinstance(obj, cls)]
         else:
             return list(FileStorage.__objects.values())
 
@@ -55,6 +56,6 @@ class FileStorage:
             with open(FileStorage.__file_path, 'r') as f:
                 temp = json.load(f)
                 for key, val in temp.items():
-                        self.all()[key] = classes[val['__class__']](**val)
+                    self.all()[key] = classes[val['__class__']](**val)
         except FileNotFoundError:
             pass
