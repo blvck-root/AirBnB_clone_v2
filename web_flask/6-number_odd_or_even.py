@@ -36,10 +36,20 @@ def python(text="is cool"):
     return "Python {}".format(texts)
 
 
-@app.route('/number/<n>', strict_slashes=False)
-def is_number(n):
+@app.route('/number/<int:n>', strict_slashes=False)
+def number(n):
     """displays n"""
     return "{} is a number".format(n)
+
+
+@app.route('/number_template/<int:n>', strict_slashes=False)
+def template(n):
+    return render_template('templates/5-number.html', n=n)
+
+
+@app.route('/number_odd_or_even/<int:n>', strict_slashes=False)
+def odd_or_even(n):
+    return render_template('templates/6-number_odd_or_even.html', n=n)
 
 
 if __name__ == "__main__":
